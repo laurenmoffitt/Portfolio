@@ -1,0 +1,45 @@
+CREATE TABLE clothing (ID INTEGER PRIMARY KEY, name TEXT, cost INTEGER, color TEXT, quantity INTEGER);
+
+INSERT INTO clothing VALUES (1, "jeans", 20, "blue", 10);
+INSERT INTO clothing VALUES (2, "shirts", 15, "white", 20);
+INSERT INTO clothing VALUES (3, "shorts", 10, "blue", 5);
+INSERT INTO clothing VALUES (4, "cargos", 20, "tan", 2);
+INSERT INTO clothing VALUES (5, "blouse", 30, "pink", 25);
+INSERT INTO clothing VALUES (6, "crop_top", 12, "brown", 12);
+INSERT INTO clothing VALUES (7, "socks", 10, "grey", 45);
+INSERT INTO clothing VALUES (8, "tshirt", 12, "yellow", 30);
+INSERT INTO clothing VALUES (9, "slippers", 10, "tan", 20);
+INSERT INTO clothing VALUES (10, "dress", 30, "red", 40);
+INSERT INTO clothing VALUES (11, "crocs", 40, "purple", 20);
+INSERT INTO clothing VALUES (12, "boots", 50, "white", 30);
+INSERT INTO clothing VALUES (13, "tanktop", 10, "purple", 45);
+INSERT INTO clothing VALUES (14, "pj_top", 25, "grey", 20);
+INSERT INTO clothing VALUES (15, "pj_bottoms", 25, "grey", 35);
+
+/*how many clothing category items in this table are grey in color?*/
+SELECT color 
+FROM clothing 
+WHERE color = "grey";
+
+/*Order items by the most expensive:*/
+SELECT *
+FROM clothing
+ORDER BY cost DESC;
+
+/*How much does each item cost per color?*/
+SELECT SUM(quantity)
+FROM clothing
+GROUP BY color;
+
+/*Which clothing items cost less than $20?*/
+SELECT name
+FROM clothing
+WHERE cost >20;
+
+/*Which clothing item cost less than $20 and the color is purple?*/
+SELECT name
+FROM clothing
+WHERE cost > 20 AND color = purple;
+
+
+
